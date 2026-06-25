@@ -1,0 +1,1356 @@
+
+
+<header class="encabezado">
+
+  <nav class="navbar">
+
+    <a
+      class="marca"
+      href="#inicio"
+      (click)="cerrarMenuMovil()">
+
+<img
+  class="logo-navbar"
+  src="/logo.png"
+  alt="Logo de Grupo Aragón">
+
+      <div class="marca-texto">
+        <strong>GRUPO ARAGÓN</strong>
+        <span>Alfa & Omega</span>
+      </div>
+
+    </a>
+
+    <div class="buscador-navbar">
+
+      <input
+        type="search"
+        [(ngModel)]="busqueda"
+        (keyup.enter)="buscarServicio()"
+        placeholder="¿Qué servicio estás buscando?"
+        aria-label="Buscar un servicio">
+
+      <button
+        type="button"
+        (click)="buscarServicio()"
+        aria-label="Buscar">
+
+        🔍
+
+      </button>
+
+    </div>
+
+    <button
+      class="boton-menu-movil"
+      type="button"
+      (click)="alternarMenuMovil()"
+      aria-label="Abrir menú">
+
+      ☰
+
+    </button>
+
+    <ul
+      class="menu-principal"
+      [class.menu-abierto]="menuMovilAbierto">
+
+      <li>
+        <a
+          href="#inicio"
+          (click)="cerrarMenuMovil()">
+
+          Inicio
+
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="#nosotros"
+          (click)="cerrarMenuMovil()">
+
+          Nosotros
+
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="#servicios"
+          (click)="cerrarMenuMovil()">
+
+          Servicios
+
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="#contacto"
+          (click)="cerrarMenuMovil()">
+
+          Contacto
+
+        </a>
+      </li>
+
+      <li
+        class="menu-desplegable"
+        (mouseenter)="mostrarMenuContratar()"
+        (mouseleave)="ocultarMenuContratar()">
+
+        <button
+          class="boton-contratar"
+          type="button"
+          (click)="alternarMenuContratar()">
+
+          Quiero contratar
+
+          <span
+            [class.flecha-activa]="menuContratarVisible">
+
+            ⌄
+
+          </span>
+
+        </button>
+
+        <div
+          class="submenu"
+          *ngIf="menuContratarVisible">
+
+          <div class="submenu-icono">
+            💻
+          </div>
+
+          <div class="submenu-contenido">
+
+            <span class="submenu-etiqueta">
+              Solución empresarial
+            </span>
+
+            <h3>Quiero contratar</h3>
+
+            <p>
+              Solicita soporte técnico, redes,
+              cámaras, desarrollo de sistemas,
+              venta de equipos o consultoría.
+            </p>
+
+            <button
+              type="button"
+              class="submenu-boton"
+              (click)="irAContacto()">
+
+              Solicitar cotización
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </li>
+
+    </ul>
+
+  </nav>
+
+  <div class="barra-categorias">
+
+    <a href="#servicio-soporte">
+       Soporte técnico
+    </a>
+
+    <a href="#servicio-redes">
+       Redes empresariales
+    </a>
+
+    <a href="#servicio-camaras">
+       Videovigilancia
+    </a>
+
+    <a href="#servicio-software">
+       Desarrollo
+    </a>
+
+    <a href="#servicio-equipos">
+       Equipos
+    </a>
+
+    <a href="#servicio-consultoria">
+       Consultoría
+    </a>
+
+  </div>
+
+</header>
+
+
+<div
+  class="mensaje-busqueda"
+  *ngIf="mensajeBusqueda">
+
+  {{ mensajeBusqueda }}
+
+</div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+  class="hero"
+  id="inicio">
+
+  <div class="hero-contenido">
+
+    <span class="etiqueta">
+      Soluciones tecnológicas empresariales
+    </span>
+
+    <h1>
+      Tecnología que transforma
+      <span>tu mundo</span>
+    </h1>
+
+    <p>
+      En Grupo Aragón Alfa & Omega brindamos
+      soluciones tecnológicas integrales y
+      personalizadas para impulsar el crecimiento,
+      la seguridad y la transformación digital
+      de empresas y negocios.
+    </p>
+
+    <div class="hero-beneficios">
+
+      <span>
+        ✓ Atención personalizada
+      </span>
+
+      <span>
+        ✓ Tecnología moderna
+      </span>
+
+      <span>
+        ✓ Soporte especializado
+      </span>
+
+    </div>
+
+    <div class="hero-botones">
+
+      <button
+        class="boton boton-principal"
+        type="button"
+        (click)="irAContacto()">
+
+        Solicitar cotización
+
+      </button>
+
+      <a
+        class="boton boton-secundario"
+        href="#servicios">
+
+        Explorar servicios
+
+      </a>
+
+    </div>
+
+  </div>
+
+<div class="hero-visual">
+
+  <div class="circulo-fondo"></div>
+
+  <div class="logo-circulo">
+    <img
+      src="/logo.png"
+      alt="Grupo Aragón Alfa & Omega">
+  </div>
+
+  <div class="tarjeta-flotante tarjeta-superior">
+
+    <span>🛡️</span>
+
+    <div>
+      <strong>Seguridad</strong>
+      <small>Soluciones confiables</small>
+    </div>
+
+  </div>
+
+  <div class="tarjeta-flotante tarjeta-inferior">
+
+    <span>⚙️</span>
+
+    <div>
+      <strong>Tecnología</strong>
+      <small>A la medida de tu empresa</small>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================
+     CATEGORÍAS
+========================================= -->
+
+<section class="categorias">
+
+  <div class="contenedor">
+
+    <div class="titulo-seccion">
+
+      <span>
+        Explora nuestras soluciones
+      </span>
+
+      <h2>
+        Servicios para hacer crecer tu empresa
+      </h2>
+
+      <p>
+        Encuentra soluciones tecnológicas
+        adaptadas a las necesidades de tu negocio.
+      </p>
+
+    </div>
+
+    <div class="categorias-grid">
+
+      <a
+        class="categoria-card"
+        href="#servicio-soporte">
+
+        <div class="categoria-icono">
+          💻
+        </div>
+
+        <h3>Soporte técnico</h3>
+
+        <p>
+          Mantenimiento y reparación
+          de computadoras y laptops.
+        </p>
+
+      </a>
+
+      <a
+        class="categoria-card"
+        href="#servicio-redes">
+
+        <div class="categoria-icono">
+          🌐
+        </div>
+
+        <h3>Redes empresariales</h3>
+
+        <p>
+          Instalación y configuración
+          de redes seguras.
+        </p>
+
+      </a>
+
+      <a
+        class="categoria-card"
+        href="#servicio-camaras">
+
+        <div class="categoria-icono">
+          📹
+        </div>
+
+        <h3>Videovigilancia</h3>
+
+        <p>
+          Sistemas de seguridad
+          y monitoreo remoto.
+        </p>
+
+      </a>
+
+      <a
+        class="categoria-card"
+        href="#servicio-software">
+
+        <div class="categoria-icono">
+          ⚙️
+        </div>
+
+        <h3>Desarrollo</h3>
+
+        <p>
+          Sistemas y páginas web
+          para empresas.
+        </p>
+
+      </a>
+
+      <a
+        class="categoria-card"
+        href="#servicio-equipos">
+
+        <div class="categoria-icono">
+          🖥️
+        </div>
+
+        <h3>Equipos</h3>
+
+        <p>
+          Venta de computadoras,
+          componentes y accesorios.
+        </p>
+
+      </a>
+
+      <a
+        class="categoria-card"
+        href="#servicio-consultoria">
+
+        <div class="categoria-icono">
+          🤝
+        </div>
+
+        <h3>Consultoría</h3>
+
+        <p>
+          Asesoría tecnológica
+          para empresas y negocios.
+        </p>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     ESTADÍSTICAS
+========================================= -->
+
+<section class="estadisticas">
+
+  <div class="estadistica">
+    <strong>50+</strong>
+    <span>Clientes atendidos</span>
+  </div>
+
+  <div class="estadistica">
+    <strong>100+</strong>
+    <span>Soluciones realizadas</span>
+  </div>
+
+  <div class="estadistica">
+    <strong>24/7</strong>
+    <span>Soporte tecnológico</span>
+  </div>
+
+  <div class="estadistica">
+    <strong>98%</strong>
+    <span>Satisfacción</span>
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     SOBRE NOSOTROS
+========================================= -->
+
+<section
+  class="nosotros"
+  id="nosotros">
+
+  <div class="nosotros-visual">
+
+    <div class="nosotros-logo">
+
+      <img
+        src="/compromiso.jpg"
+        alt="Grupo Aragón">
+
+    </div>
+
+    <div class="tarjeta-experiencia">
+
+      <strong>Innovación</strong>
+
+      <span>
+        Experiencia y compromiso empresarial
+      </span>
+
+    </div>
+
+  </div>
+
+  <div class="nosotros-contenido">
+
+    <span class="etiqueta">
+      Sobre nosotros
+    </span>
+
+    <h2>
+      Tecnología, compromiso
+      y soluciones confiables
+    </h2>
+
+    <p>
+      Grupo Aragón Alfa & Omega The Elementals
+      EIRL es una empresa especializada en brindar
+      soluciones tecnológicas integrales para
+      empresas, negocios y emprendedores.
+    </p>
+
+    <p>
+      Nuestro trabajo se enfoca en optimizar
+      procesos, fortalecer la seguridad informática
+      y mejorar el rendimiento empresarial mediante
+      herramientas modernas y atención personalizada.
+    </p>
+
+    <div class="beneficios-grid">
+
+      <div>
+        <span>✓</span>
+        Atención personalizada
+      </div>
+
+      <div>
+        <span>✓</span>
+        Soluciones a medida
+      </div>
+
+      <div>
+        <span>✓</span>
+        Seguridad y confianza
+      </div>
+
+      <div>
+        <span>✓</span>
+        Tecnología avanzada
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     MISIÓN Y VISIÓN
+========================================= -->
+
+<section class="mision-vision">
+
+  <article class="mv-card">
+
+    <div class="mv-icono">
+      🎯
+    </div>
+
+    <div>
+
+      <span>Nuestra misión</span>
+
+      <h3>
+        Brindar soluciones confiables
+      </h3>
+
+      <p>
+        Ofrecer soluciones tecnológicas eficientes,
+        seguras y personalizadas que contribuyan
+        al crecimiento y competitividad de nuestros
+        clientes.
+      </p>
+
+    </div>
+
+  </article>
+
+  <article class="mv-card">
+
+    <div class="mv-icono">
+      🚀
+    </div>
+
+    <div>
+
+      <span>Nuestra visión</span>
+
+      <h3>
+        Liderar la transformación tecnológica
+      </h3>
+
+      <p>
+        Ser una empresa reconocida por la calidad,
+        innovación y compromiso en la prestación
+        de servicios tecnológicos.
+      </p>
+
+    </div>
+
+  </article>
+
+</section>
+
+
+<!-- =========================================
+     OBJETIVOS
+========================================= -->
+
+<section class="objetivos">
+
+  <div class="contenedor">
+
+    <div class="titulo-seccion">
+
+      <span>Nuestro propósito</span>
+
+      <h2>Objetivos empresariales</h2>
+
+      <p>
+        Convertimos la tecnología en una herramienta
+        de crecimiento y seguridad para nuestros clientes.
+      </p>
+
+    </div>
+
+    <div class="objetivos-grid">
+
+      <article class="objetivo-card">
+
+        <div class="objetivo-icono">
+          🎯
+        </div>
+
+        <h3>Transformación digital</h3>
+
+        <p>
+          Modernizar y optimizar los procesos
+          de las empresas.
+        </p>
+
+      </article>
+
+      <article class="objetivo-card">
+
+        <div class="objetivo-icono">
+          📈
+        </div>
+
+        <h3>Crecimiento empresarial</h3>
+
+        <p>
+          Mejorar la productividad mediante
+          soluciones eficientes.
+        </p>
+
+      </article>
+
+      <article class="objetivo-card">
+
+        <div class="objetivo-icono">
+          🔒
+        </div>
+
+        <h3>Seguridad tecnológica</h3>
+
+        <p>
+          Proteger la información y los recursos
+          tecnológicos de cada cliente.
+        </p>
+
+      </article>
+
+      <article class="objetivo-card">
+
+        <div class="objetivo-icono">
+          💡
+        </div>
+
+        <h3>Innovación constante</h3>
+
+        <p>
+          Aplicar herramientas modernas
+          y adaptadas al mercado.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     SERVICIOS
+========================================= -->
+
+<section
+  class="servicios"
+  id="servicios">
+
+  <div class="contenedor">
+
+    <div class="titulo-seccion">
+
+      <span>Lo que hacemos</span>
+
+      <h2>Nuestros servicios</h2>
+
+      <p>
+        Soluciones completas para las necesidades
+        tecnológicas de empresas y negocios.
+      </p>
+
+    </div>
+
+    <div class="servicios-grid">
+
+      <article
+        class="servicio-card"
+        id="servicio-soporte">
+
+        <div class="servicio-icono">
+          💻
+        </div>
+
+        <h3>Soporte técnico</h3>
+
+        <p>
+          Diagnóstico, mantenimiento preventivo
+          y correctivo de computadoras y laptops.
+        </p>
+
+        <ul>
+          <li>Mantenimiento de equipos</li>
+          <li>Eliminación de virus</li>
+          <li>Instalación de programas</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Soporte técnico')">
+
+          Solicitar servicio →
+
+        </button>
+
+      </article>
+
+      <article
+        class="servicio-card"
+        id="servicio-redes">
+
+        <div class="servicio-icono">
+          🌐
+        </div>
+
+        <h3>Redes empresariales</h3>
+
+        <p>
+          Instalación y configuración de redes
+          seguras para oficinas y empresas.
+        </p>
+
+        <ul>
+          <li>Cableado estructurado</li>
+          <li>Configuración de routers</li>
+          <li>Redes LAN y WiFi</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Redes empresariales')">
+
+          Solicitar servicio →
+
+        </button>
+
+      </article>
+
+      <article
+        class="servicio-card"
+        id="servicio-camaras">
+
+        <div class="servicio-icono">
+          📹
+        </div>
+
+        <h3>Cámaras de vigilancia</h3>
+
+        <p>
+          Sistemas modernos de videovigilancia
+          para hogares, oficinas y empresas.
+        </p>
+
+        <ul>
+          <li>Instalación de cámaras</li>
+          <li>Monitoreo remoto</li>
+          <li>Mantenimiento CCTV</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Cámaras de vigilancia')">
+
+          Solicitar servicio →
+
+        </button>
+
+      </article>
+
+      <article
+        class="servicio-card"
+        id="servicio-software">
+
+        <div class="servicio-icono">
+          ⚙️
+        </div>
+
+        <h3>Desarrollo de sistemas</h3>
+
+        <p>
+          Diseño de herramientas digitales adaptadas
+          a las necesidades de cada cliente.
+        </p>
+
+        <ul>
+          <li>Sistemas empresariales</li>
+          <li>Páginas web</li>
+          <li>Automatización de procesos</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Desarrollo de sistemas')">
+
+          Solicitar servicio →
+
+        </button>
+
+      </article>
+
+      <article
+        class="servicio-card"
+        id="servicio-equipos">
+
+        <div class="servicio-icono">
+          🖥️
+        </div>
+
+        <h3>Venta de equipos</h3>
+
+        <p>
+          Equipos y componentes tecnológicos
+          seleccionados según tus necesidades.
+        </p>
+
+        <ul>
+          <li>Computadoras y laptops</li>
+          <li>Componentes tecnológicos</li>
+          <li>Accesorios y periféricos</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Venta de equipos')">
+
+          Solicitar información →
+
+        </button>
+
+      </article>
+
+      <article
+        class="servicio-card"
+        id="servicio-consultoria">
+
+        <div class="servicio-icono">
+          🤝
+        </div>
+
+        <h3>Consultoría informática</h3>
+
+        <p>
+          Asesoría especializada para implementar
+          soluciones tecnológicas eficientes.
+        </p>
+
+        <ul>
+          <li>Diagnóstico tecnológico</li>
+          <li>Planificación TI</li>
+          <li>Transformación digital</li>
+        </ul>
+
+        <button
+          type="button"
+          (click)="seleccionarServicio('Consultoría informática')">
+
+          Solicitar asesoría →
+
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     POR QUÉ ELEGIRNOS
+========================================= -->
+
+<section class="elegirnos">
+
+  <div class="elegirnos-contenido">
+
+    <span class="etiqueta">
+      ¿Por qué elegirnos?
+    </span>
+
+    <h2>
+      Un aliado tecnológico para tu empresa
+    </h2>
+
+    <p>
+      Combinamos experiencia, innovación
+      y atención cercana para ofrecer
+      resultados confiables.
+    </p>
+
+    <div class="elegirnos-grid">
+
+      <div>
+
+        <span>01</span>
+
+        <h3>Atención personalizada</h3>
+
+        <p>
+          Analizamos cada necesidad empresarial.
+        </p>
+
+      </div>
+
+      <div>
+
+        <span>02</span>
+
+        <h3>Soluciones a medida</h3>
+
+        <p>
+          Adaptamos la tecnología a cada empresa.
+        </p>
+
+      </div>
+
+      <div>
+
+        <span>03</span>
+
+        <h3>Soporte confiable</h3>
+
+        <p>
+          Acompañamiento durante todo el servicio.
+        </p>
+
+      </div>
+
+      <div>
+
+        <span>04</span>
+
+        <h3>Innovación tecnológica</h3>
+
+        <p>
+          Aplicamos herramientas modernas y eficientes.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+ <div class="panel-seguridad">
+
+  <div class="panel-imagen">
+    <img
+      src="/coach.jpg"
+      alt="Equipo de trabajo y atención empresarial">
+  </div>
+
+  <h3>
+    Seguridad y confianza
+  </h3>
+
+  <p>
+    Tu empresa necesita soluciones que funcionen
+    eficientemente y protejan sus recursos tecnológicos.
+  </p>
+
+  <button
+    type="button"
+    (click)="irAContacto()">
+
+    Hablar con un especialista
+
+  </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACTO
+========================================= -->
+
+<section
+  class="contacto"
+  id="contacto">
+
+  <div class="contacto-informacion">
+
+    <span class="etiqueta">
+      Contáctanos
+    </span>
+
+    <h2>
+      Conversemos sobre tu próximo proyecto
+    </h2>
+
+    <p>
+      Cuéntanos qué solución tecnológica
+      necesita tu empresa y nuestro equipo
+      se comunicará contigo.
+    </p>
+
+    <div class="datos-contacto">
+
+      <div>
+
+        <span><img  class="icono-contacto" src = "/whatsapp.png" ></span>
+
+
+    
+        <p>
+          <small>Teléfono</small>
+          <strong>972 420 012</strong>
+        </p>
+
+      </div>
+
+      <div>
+
+        <span><img  class="icono-contacto" src = "/gmail.png" ></span>
+
+        <p>
+          <small>Correo electrónico</small>
+
+          <strong>
+            grupoaragon2021&#64;gmail.com
+          </strong>
+        </p>
+
+      </div>
+
+      <div>
+
+        <span><img  class="icono-contacto" src = "/sunat.png" ></span>
+
+        <p>
+          <small>RUC</small>
+          <strong>20606494085</strong>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <form
+    class="formulario"
+    #cotizacionForm="ngForm"
+    (ngSubmit)="enviarSolicitud()">
+
+    <h3>Solicita una cotización</h3>
+
+    <div class="formulario-fila">
+
+      <div class="campo">
+
+        <label for="nombre">
+          Nombre
+        </label>
+
+        <input
+          id="nombre"
+          name="nombre"
+          type="text"
+          [(ngModel)]="formulario.nombre"
+          placeholder="Ingresa tu nombre"
+          required>
+
+      </div>
+
+      <div class="campo">
+
+        <label for="empresa">
+          Empresa
+        </label>
+
+        <input
+          id="empresa"
+          name="empresa"
+          type="text"
+          [(ngModel)]="formulario.empresa"
+          placeholder="Nombre de tu empresa">
+
+      </div>
+
+    </div>
+
+    <div class="formulario-fila">
+
+      <div class="campo">
+
+        <label for="correo">
+          Correo electrónico
+        </label>
+
+        <input
+          id="correo"
+          name="correo"
+          type="email"
+          [(ngModel)]="formulario.correo"
+          placeholder="correo@empresa.com"
+          required
+          email>
+
+      </div>
+
+      <div class="campo">
+
+        <label for="telefono">
+          Teléfono
+        </label>
+
+        <input
+          id="telefono"
+          name="telefono"
+          type="tel"
+          [(ngModel)]="formulario.telefono"
+          placeholder="999 999 999"
+          required>
+
+      </div>
+
+    </div>
+
+    <div class="campo">
+
+      <label for="servicio">
+        Servicio requerido
+      </label>
+
+      <select
+        id="servicio"
+        name="servicio"
+        [(ngModel)]="formulario.servicio"
+        required>
+
+        <option value="">
+          Selecciona un servicio
+        </option>
+
+        <option value="Soporte técnico">
+          Soporte técnico
+        </option>
+
+        <option value="Redes empresariales">
+          Redes empresariales
+        </option>
+
+        <option value="Cámaras de vigilancia">
+          Cámaras de vigilancia
+        </option>
+
+        <option value="Desarrollo de sistemas">
+          Desarrollo de sistemas
+        </option>
+
+        <option value="Venta de equipos">
+          Venta de equipos
+        </option>
+
+        <option value="Consultoría informática">
+          Consultoría informática
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="campo">
+
+      <label for="mensaje">
+        Mensaje
+      </label>
+
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        rows="5"
+        [(ngModel)]="formulario.mensaje"
+        placeholder="Cuéntanos qué necesita tu empresa"
+        required></textarea>
+
+    </div>
+
+    <button
+      class="formulario-boton"
+      type="submit"
+      [disabled]="cotizacionForm.invalid">
+
+      Enviar solicitud
+
+    </button>
+
+    <div
+      class="mensaje-enviado"
+      *ngIf="mensajeEnviado">
+
+      ✓ Tu solicitud fue registrada correctamente.
+      Nuestro equipo se comunicará contigo.
+
+    </div>
+
+  </form>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="footer-contenido">
+
+    <div class="footer-marca">
+
+      <img
+        src="/logo.png"
+        alt="Logo Grupo Aragón">
+
+      <h3>
+        Grupo Aragón Alfa & Omega
+      </h3>
+
+      <p>
+        Innovación, experiencia y compromiso
+        para llevar tu empresa al siguiente nivel.
+      </p>
+
+    </div>
+
+    <div class="footer-columna">
+
+      <h4>Empresa</h4>
+
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+
+    </div>
+
+    <div class="footer-columna">
+
+      <h4>Servicios</h4>
+
+      <a href="#servicio-soporte">
+        Soporte técnico
+      </a>
+
+      <a href="#servicio-redes">
+        Redes empresariales
+      </a>
+
+      <a href="#servicio-camaras">
+        Videovigilancia
+      </a>
+
+      <a href="#servicio-software">
+        Desarrollo de sistemas
+      </a>
+
+    </div>
+
+    <div class="footer-columna">
+
+      <h4>Contacto</h4>
+
+      <span>972 420 012</span>
+
+      <span>
+        grupoaragon2021&#64;gmail.com
+      </span>
+
+      <span>
+        RUC: 20606494085
+      </span>
+
+    </div>
+
+  </div>
+
+  <div class="footer-inferior">
+
+    <p>
+      © 2026 Grupo Aragón Alfa & Omega
+      The Elementals EIRL.
+      Todos los derechos reservados.
+    </p>
+
+    <div>
+
+      <a href="#">
+        Facebook
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a href="#">
+        WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
